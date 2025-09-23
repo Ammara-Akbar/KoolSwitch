@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:kool_switch/screens/select_id_type_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class IdentityVerificationScreen extends StatelessWidget {
@@ -54,7 +55,8 @@ class IdentityVerificationScreen extends StatelessWidget {
             _buildVerificationItem(
               image: "assets/images/address.png",
               title: "Proof of address",
-              subtitle: "Documents that can prove the address, such as utility bills, etc",
+              subtitle:
+                  "Documents that can prove the address, such as utility bills, etc",
             ),
             const SizedBox(height: 20),
 
@@ -62,7 +64,8 @@ class IdentityVerificationScreen extends StatelessWidget {
             _buildVerificationItem(
               image: "assets/images/recog.png",
               title: "Facial recognition",
-              subtitle: "Confirm that the portrait matches the picture on the identification document.",
+              subtitle:
+                  "Confirm that the portrait matches the picture on the identification document.",
             ),
 
             const Spacer(),
@@ -72,19 +75,22 @@ class IdentityVerificationScreen extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 15),
               child: Text.rich(
                 TextSpan(
-                  text: "Clicking the continue button means that I have read and agreed to the ",
+                  text:
+                      "Clicking the continue button means that I have read and agreed to the ",
                   style: const TextStyle(fontSize: 14, color: Colors.black54),
                   children: [
                     TextSpan(
-                      text: "user identity authentication information statement",
+                      text:
+                          "user identity authentication information statement",
                       style: const TextStyle(
                         fontSize: 14,
                         color: Colors.black,
                         decoration: TextDecoration.underline,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {
-                        // Open link or navigate
-                      },
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          // Open link or navigate
+                        },
                     ),
                   ],
                 ),
@@ -103,11 +109,18 @@ class IdentityVerificationScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  // Continue action
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const SelectIDTypeScreen()),
+                  );
                 },
                 child: const Text(
                   "Agree and continue",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600,color: Colors.white),
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white),
                 ),
               ),
             ),
