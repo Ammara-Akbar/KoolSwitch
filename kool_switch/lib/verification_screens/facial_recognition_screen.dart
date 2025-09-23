@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kool_switch/utils/colors.dart';
+import 'package:kool_switch/verification_screens/verification-screen.dart';
 
 class FacialRecognitionScreen extends StatelessWidget {
   const FacialRecognitionScreen({super.key});
@@ -21,7 +22,7 @@ class FacialRecognitionScreen extends StatelessWidget {
         children: [
           // Step indicator
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             child: Row(
               children: [
                 Expanded(child: Container(height: 3, color: Colors.black87)),
@@ -113,7 +114,10 @@ class FacialRecognitionScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  // Continue action
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const VerifiedScreen()),
+                  );
                 },
                 child: const Text(
                   "Continue",

@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:kool_switch/screens/select_id_type_screen.dart';
+import 'package:kool_switch/verification_screens/select_id_type_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class IdentityVerificationScreen extends StatelessWidget {

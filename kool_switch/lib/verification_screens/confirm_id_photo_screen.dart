@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kool_switch/screens/proof_address-screen.dart';
+import 'package:kool_switch/verification_screens/proof_address-screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class ConfirmIDPhotoScreen extends StatelessWidget {

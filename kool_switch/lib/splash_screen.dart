@@ -2,7 +2,7 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:kool_switch/screens/idenitity_verification_screen.dart';
+import 'package:kool_switch/verification_screens/idenitity_verification_screen.dart';
 import 'package:kool_switch/utils/my_images.dart';
 import 'utils/colors.dart';
 

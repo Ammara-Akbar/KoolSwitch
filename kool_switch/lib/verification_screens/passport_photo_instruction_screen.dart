@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kool_switch/screens/facial_recognition_screen.dart';
+import 'package:kool_switch/verification_screens/confirm_id_photo_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
-class ProofOfAddressScreen extends StatelessWidget {
-  const ProofOfAddressScreen({super.key});
+class PassportPhotoInstructionScreen extends StatelessWidget {
+  const PassportPhotoInstructionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ProofOfAddressScreen extends StatelessWidget {
         children: [
           // Step indicator
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 12),
             child: Row(
               children: [
                 Expanded(
@@ -36,15 +36,24 @@ class ProofOfAddressScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 5),
                 Expanded(
-                  child: Container(height: 3, color: Colors.black87),
+                  child: Container(
+                    height: 3,
+                    color: Colors.black87,
+                  ),
                 ),
                 const SizedBox(width: 5),
                 Expanded(
-                  child: Container(height: 3, color: Colors.black87),
+                  child: Container(
+                    height: 3,
+                    color: Colors.black12,
+                  ),
                 ),
                 const SizedBox(width: 5),
                 Expanded(
-                  child: Container(height: 3, color: Colors.black12),
+                  child: Container(
+                    height: 3,
+                    color: Colors.black12,
+                  ),
                 ),
               ],
             ),
@@ -54,62 +63,55 @@ class ProofOfAddressScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 20),
 
-                  // Address card
+                  // Passport image
                   Container(
-                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Center(
-                      child: Image.asset(
-                        "assets/images/hhh-removebg-preview.png",
-                        height: 180,
-                        fit: BoxFit.contain,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          bottom: 30,
+                        ),
+                        child: Image.asset(
+                          "assets/images/ddd.png",
+                          width: 270,
+                          height: 150,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                   ),
-
-                  const SizedBox(height: 30),
-
+SizedBox(height: 22,),
                   // Title
-                  const Text(
-                    "Proof of address",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-
-                  // Subtitle
-                  const Text(
-                    "We need proof of address to confirm that you live in Hong Kong",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black54,
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Before take your passport photo, please make sure that",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black87,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 20),
 
                   // Bullet points
-                  const _BulletPoint(
-                    text:
-                        "You can use any of the following documents as proof of address documentation: Utility bills / Bank statement / Communication billing",
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      _BulletPoint(text: "Your ID isn’t expired"),
+                      SizedBox(height: 8),
+                      _BulletPoint(text: "Take a clear photo"),
+                      SizedBox(height: 8),
+                      _BulletPoint(text: "Capture you entire ID"),
+                    ],
                   ),
-                  const SizedBox(height: 12),
-                  const _BulletPoint(
-                    text:
-                        "The document must contain your name, address in Hong Kong, date within the last 3 months",
-                  ),
-                  const SizedBox(height: 12),
-                  const _BulletPoint(
-                      text: "Please provide supporting documents in English"),
                 ],
               ),
             ),
@@ -129,11 +131,12 @@ class ProofOfAddressScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) => const FacialRecognitionScreen()),
-                  );
+                     Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) =>
+                                        const ConfirmIDPhotoScreen()),
+                              );
                 },
                 child: const Text(
                   "Take photo",
@@ -161,11 +164,14 @@ class _BulletPoint extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("• ", style: TextStyle(fontSize: 14, color: Colors.black54)),
+        const Text(
+          "• ",
+          style: TextStyle(fontSize: 16, color: Colors.black54),
+        ),
         Expanded(
           child: Text(
             text,
-            style: const TextStyle(fontSize: 14, color: Colors.black87),
+            style: const TextStyle(fontSize: 16, color: Colors.black87),
           ),
         ),
       ],

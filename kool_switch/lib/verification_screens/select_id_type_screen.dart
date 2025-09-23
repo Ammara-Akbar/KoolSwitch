@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kool_switch/screens/passport_photo_instruction_screen.dart';
+import 'package:kool_switch/verification_screens/passport_photo_instruction_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class SelectIDTypeScreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class _SelectIDTypeScreenState extends State<SelectIDTypeScreen> {
   final List<Map<String, String>> idTypes = [
     {"title": "ID card", "image": "assets/images/idcard1.png"},
     {"title": "Passport", "image": "assets/images/passport.png"},
-    {"title": "Driver’s license", "image": "assets/images/idcard.png"},
+    {"title": "Driver’s license", "image": "assets/images/ICON.png"},
   ];
 
   @override
