@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kool_switch/screens/bottom_bar.dart';
+import 'package:kool_switch/screens/wallet_dashboard_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class VerifiedScreen extends StatelessWidget {
@@ -55,17 +57,21 @@ class VerifiedScreen extends StatelessWidget {
 
               // Done button
               SizedBox(
-                
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryColor,
-                    padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 77),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 77),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                   onPressed: () {
-                    
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const MyBottomBar()),
+                    );
                   },
                   child: const Text(
                     "Done",
