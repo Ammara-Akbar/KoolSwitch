@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kool_switch/screens/make_payment_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class PaymentScreen extends StatelessWidget {
@@ -160,7 +161,12 @@ class PaymentScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8)),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                       Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => MakePaymentScreen()),
+                );
+                    },
                     child: const Text("Make Payment",
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w600)),
