@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:kool_switch/screens/make_payment_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
@@ -9,7 +10,6 @@ class PaymentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       appBar: AppBar(
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
@@ -28,108 +28,137 @@ class PaymentScreen extends StatelessWidget {
           ),
         ),
       ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Trade Information Card
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: AppColors.primaryColor,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _rowItem("Fiat Currency", "NGN"),
-                  const SizedBox(height: 15),
-                  _rowItem("Value", "0.03456 ALGO",
-                      isBold: true, valueColor: Colors.white),
-                  const SizedBox(height: 15),
-                  _rowItem("FIAT Value", "100,000.00 NGN",
-                      isBold: true, valueColor: Colors.white),
-                  const SizedBox(height: 15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text("Seller Name",
-                          style: TextStyle(color: Colors.white70, fontSize: 14)),
-                      Row(
-                        children: [
-                          Text("Michael",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
-                                  fontSize: 14)),
-                          SizedBox(width: 4),
-                          Icon(Icons.verified, color: Colors.amber, size: 16),
-                        ],
+            DottedBorder(
+                    color: Colors.grey,
+                    strokeWidth: 1,
+                    borderType: BorderType.RRect,
+                    radius: const Radius.circular(10),
+                    dashPattern: const [6, 3],
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: AppColors.primaryColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _rowItem("Fiat Currency", "NGN"),
+                    const SizedBox(height: 15),
+                    _rowItem("Value", "0.03456 ALGO",
+                        isBold: true, valueColor: Colors.white),
+                    const SizedBox(height: 15),
+                    _rowItem("FIAT Value", "100,000.00 NGN",
+                        isBold: true, valueColor: Colors.white),
+                    const SizedBox(height: 15),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text("Seller Name",
+                            style:
+                                TextStyle(color: Colors.white70, fontSize: 14)),
+                        Row(
+                          children: [
+                            Text("Michael",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white,
+                                    fontSize: 14)),
+                            SizedBox(width: 4),
+                            Icon(Icons.verified, color: Colors.amber, size: 16),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    _rowItem("Payment Method", "Bank Transfer"),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    const Text(
+                      "Terms & Conditions",
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    ),
+              
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: DottedBorder(
+                        color: Colors.white12,
+                        strokeWidth: 1,
+                        dashPattern: const [6, 3], // 6 = dash length, 3 = gap
+                        borderType: BorderType.Rect,
+                        padding: EdgeInsets.zero,
+                        child: const SizedBox(
+                          width: double.infinity,
+                          height: 0, // this ensures it's just a line
+                        ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  _rowItem("Payment Method", "Bank Transfer"),
-                  const Divider(color: Colors.white38, height: 24),
-
-                  const Text(
-                    "Terms & Conditions",
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white),
-                  ),
-                  const SizedBox(height: 10),
-                  const Text(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
-                    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                    style: TextStyle(fontSize: 13, color: Colors.white70),
-                  ),
-                ],
+                    ),
+                    const Text(
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+                      "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                      style: TextStyle(fontSize: 13, color: Colors.white70),
+                    ),
+                  ],
+                ),
               ),
             ),
 
             const SizedBox(height: 20),
 
             // Warning Box
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(14),
-              decoration: BoxDecoration(
-                color: Color(0xffFEF0C7).withOpacity(0.3),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color:  Colors.orange.shade100
+            DottedBorder(
+              color: Colors.orange.shade100,
+              strokeWidth: 1,
+              borderType: BorderType.RRect,
+              radius: const Radius.circular(6),
+              dashPattern: const [6, 3],
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  color: Color(0xffFEF0C7).withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(8),
+                  // border: Border.all(color:  Colors.orange.shade100
+                  // ),
                 ),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                 Image.asset("assets/images/danger.png",
-                  height: 22),
-                  const SizedBox(width: 10),
-                  const Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Attention",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                                color: Colors.black)),
-                        SizedBox(height: 6),
-                        Text(
-                          "Please take the time to thoroughly read the details "
-                          "and terms and conditions above. Failure to comply "
-                          "might lead to unsuccessful transactions and financial loss.",
-                          style: TextStyle(fontSize: 13, color: Colors.black87),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset("assets/images/danger.png", height: 22),
+                    const SizedBox(width: 10),
+                    const Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Attention",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                  color: Colors.black)),
+                          SizedBox(height: 6),
+                          Text(
+                            "Please take the time to thoroughly read the details "
+                            "and terms and conditions above. Failure to comply "
+                            "might lead to unsuccessful transactions and financial loss.",
+                            style:
+                                TextStyle(fontSize: 13, color: Colors.black87),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
 
@@ -162,10 +191,10 @@ class PaymentScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
                     onPressed: () {
-                       Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => MakePaymentScreen()),
-                );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => MakePaymentScreen()),
+                      );
                     },
                     child: const Text("Make Payment",
                         style: TextStyle(
@@ -177,8 +206,6 @@ class PaymentScreen extends StatelessWidget {
           ],
         ),
       ),
-
-
     );
   }
 

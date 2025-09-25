@@ -1,5 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:kool_switch/screens/release_fat_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class MakePaymentScreen extends StatelessWidget {
@@ -97,7 +98,12 @@ class MakePaymentScreen extends StatelessWidget {
 
                         padding: const EdgeInsets.symmetric(horizontal: 14),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                         Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => ReleaseFiatScreen()),
+                      );
+                      },
                       icon:
                           Image.asset("assets/images/messages.png", height: 22),
                       label: const Text(
@@ -109,43 +115,44 @@ class MakePaymentScreen extends StatelessWidget {
                   const SizedBox(height: 14),
 
 // Instructions Box
-DottedBorder(
-  color: Colors.white24,
-  strokeWidth: 1,
-  borderType: BorderType.RRect,
-  radius: const Radius.circular(6),
-  dashPattern: const [6, 3],
-  child: Container(
-    width: double.infinity,
-    padding: const EdgeInsets.all(12),
-    decoration: BoxDecoration(
-      color: Colors.white10,
-      borderRadius: BorderRadius.circular(6),
-    ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: const EdgeInsets.all(4),
-          decoration: const BoxDecoration(
-            color: Colors.grey,
-            shape: BoxShape.circle,
-          ),
-          child: const Text(
-            "M",
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        const SizedBox(height: 8),
-        const Text(
-          "Leave the app and make the transfer to the details listed above. "
-          "Transfer the funds to the seller account",
-          style: TextStyle(color: Colors.white70, fontSize: 13),
-        ),
-      ],
-    ),
-  ),
-),
+                  DottedBorder(
+                    color: Colors.white24,
+                    strokeWidth: 1,
+                    borderType: BorderType.RRect,
+                    radius: const Radius.circular(6),
+                    dashPattern: const [6, 3],
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.white10,
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(4),
+                            decoration: const BoxDecoration(
+                              color: Colors.grey,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Text(
+                              "M",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          const Text(
+                            "Leave the app and make the transfer to the details listed above. "
+                            "Transfer the funds to the seller account",
+                            style:
+                                TextStyle(color: Colors.white70, fontSize: 13),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
 
                   const SizedBox(height: 20),
 
@@ -179,7 +186,12 @@ DottedBorder(
                       borderRadius: BorderRadius.circular(8)),
                   padding: const EdgeInsets.symmetric(vertical: 14),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                   Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => ReleaseFiatScreen ()),
+                      );
+                },
                 child: const Text(
                   "Transferred, Notify Seller",
                   style: TextStyle(
@@ -209,7 +221,7 @@ DottedBorder(
                     fontWeight: FontWeight.w600)),
             if (showCopy) ...[
               const SizedBox(width: 6),
-               Image.asset("assets/images/copy.png", height: 18),
+              Image.asset("assets/images/copy.png", height: 18),
             ]
           ],
         ),
