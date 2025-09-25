@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:kool_switch/screens/release_fat_screen.dart';
+import 'package:kool_switch/screens/trade_chat_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class MakePaymentScreen extends StatelessWidget {
@@ -101,7 +102,7 @@ class MakePaymentScreen extends StatelessWidget {
                       onPressed: () {
                          Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => ReleaseFiatScreen()),
+                        MaterialPageRoute(builder: (_) => TradeChatScreen()),
                       );
                       },
                       icon:
