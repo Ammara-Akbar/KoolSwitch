@@ -130,13 +130,13 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
             ),
             const SizedBox(height: 8),
             _buildPaymentTile(
-                "assets/images/bank.png", "Bank", Colors.blue.shade100),
+                "assets/images/bank.png", "Bank", const Color.fromARGB(255, 206, 231, 252)),
             const SizedBox(height: 12),
             _buildPaymentTile("assets/images/wallet.png", "Mobile Wallet",
-                Colors.purple.shade100),
+                const Color.fromARGB(255, 228, 205, 232)),
             const SizedBox(height: 12),
             _buildPaymentTile("assets/images/cash.png", "Cash Pickup",
-                Colors.orange.shade100),
+                const Color.fromARGB(255, 251, 232, 202)),
             const SizedBox(height: 20),
 
             /// Additional Info

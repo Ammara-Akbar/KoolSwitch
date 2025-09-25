@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kool_switch/screens/payment_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class BuyNGNScreen extends StatefulWidget {
@@ -15,12 +16,10 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       appBar: AppBar(
-      
         backgroundColor: Colors.white,
         elevation: 0,
-            leading: GestureDetector(
+        leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
           },
@@ -43,13 +42,11 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
           ),
         ),
       ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             /// Toggle Tabs
             Container(
               height: 40,
@@ -64,7 +61,8 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
                       onTap: () => setState(() => isFiat = true),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: isFiat ? const Color(0xFF0D213A) : Colors.white,
+                          color:
+                              isFiat ? const Color(0xFF0D213A) : Colors.white,
                           borderRadius: BorderRadius.circular(6),
                         ),
                         alignment: Alignment.center,
@@ -83,7 +81,8 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
                       onTap: () => setState(() => isFiat = false),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: !isFiat ? const Color(0xFF0D213A) : Colors.white,
+                          color:
+                              !isFiat ? const Color(0xFF0D213A) : Colors.white,
                           borderRadius: BorderRadius.circular(6),
                         ),
                         alignment: Alignment.center,
@@ -111,13 +110,13 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
 
             /// Price + Limit Row
             Row(
-              children:  [
-                Image.asset("assets/images/receipt-2.png",height: 16),
+              children: [
+                Image.asset("assets/images/receipt-2.png", height: 16),
                 SizedBox(width: 4),
                 Text("Price ₦750",
                     style: TextStyle(fontSize: 13, color: Colors.black54)),
                 SizedBox(width: 16),
-                Image.asset("assets/images/receipt-2.png",height: 16),
+                Image.asset("assets/images/receipt-2.png", height: 16),
                 SizedBox(width: 4),
                 Text("Limit ₦7, 500.00 - 9,000.00",
                     style: TextStyle(fontSize: 13, color: Colors.black54)),
@@ -141,9 +140,15 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              onPressed: () {},
-              child:  Center(
-                child: Text("Proceed", style: TextStyle(color: Colors.white,fontSize: 14)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => PaymentScreen()),
+                );
+              },
+              child: Center(
+                child: Text("Proceed",
+                    style: TextStyle(color: Colors.white, fontSize: 14)),
               ),
             ),
             const SizedBox(height: 24),
@@ -153,7 +158,6 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
               alignment: Alignment.center,
               child: const Text(
                 "Trade Information",
-               
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
             ),
@@ -170,7 +174,8 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
                   const SizedBox(height: 12),
                   _buildInfoRow(Icons.access_time, "Est Time", "15 Minutes"),
                   const SizedBox(height: 12),
-                  _buildInfoRow(Icons.payment, "Payment Method", "Bank Transfer"),
+                  _buildInfoRow(
+                      Icons.payment, "Payment Method", "Bank Transfer"),
                   const SizedBox(height: 16),
                   const Align(
                     alignment: Alignment.centerLeft,
@@ -195,20 +200,6 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
           ],
         ),
       ),
-
-      /// Bottom Nav Bar
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: const Color(0xFF0D213A),
-        unselectedItemColor: Colors.black54,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.swap_horiz), label: "Trades"),
-          BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "Listing"),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-        ],
-      ),
     );
   }
 
@@ -220,7 +211,8 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
         suffixText: suffix,
         filled: true,
         fillColor: Colors.white,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: Colors.black26),
@@ -229,7 +221,7 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: Colors.black26),
         ),
-         focusedBorder: OutlineInputBorder(
+        focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: AppColors.primaryColor),
         ),
