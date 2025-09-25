@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:kool_switch/screens/confirm_order_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class ReleaseFiatScreen extends StatelessWidget {
@@ -196,7 +197,12 @@ class ReleaseFiatScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(6),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                       Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => ConfirmOrderScreen()),
+                      );
+                    },
                     child: const Text("Appeal",
                         style: TextStyle(color: Colors.white)),
                   ),

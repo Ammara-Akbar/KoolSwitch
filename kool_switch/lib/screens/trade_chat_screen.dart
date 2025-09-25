@@ -109,15 +109,19 @@ class _TradeChatScreenState extends State<TradeChatScreen> {
                     ),
                   ),
                   Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
-                      icon: const Icon(Icons.close,
-                          size: 18, color: Colors.black45),
-                      onPressed: () {
-                        setState(() {
-                          showWarning = false;
-                        });
-                      },
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      padding: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                          color: Colors.grey, shape: BoxShape.circle),
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            showWarning = false;
+                          });
+                        },
+                        child: Icon(Icons.close, size: 15, color: Colors.black),
+                      ),
                     ),
                   ),
                 ],
@@ -131,7 +135,7 @@ class _TradeChatScreenState extends State<TradeChatScreen> {
                     Column(
                       children: [
                         CircleAvatar(
-                          radius: 16,
+                          radius: 18,
                           backgroundColor: Colors.grey.shade300,
                           child: const Text("MI",
                               style:
@@ -198,7 +202,7 @@ class _TradeChatScreenState extends State<TradeChatScreen> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: const BoxDecoration(
-                          color: Color(0xFF0C2340),
+                          color: AppColors.primaryColor,
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(12),
                             bottomRight: Radius.circular(12),
@@ -229,26 +233,32 @@ class _TradeChatScreenState extends State<TradeChatScreen> {
                           ? CrossAxisAlignment.end
                           : CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: msg.isMe
-                                ? const Color(0xFF0C2340)
-                                : Colors.black87,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: const Radius.circular(12),
-                              bottomRight: const Radius.circular(12),
-                              topLeft: msg.isMe
-                                  ? const Radius.circular(12)
-                                  : const Radius.circular(0),
-                              topRight: msg.isMe
-                                  ? const Radius.circular(0)
-                                  : const Radius.circular(12),
-                            ),
+                        ConstrainedBox(
+                          constraints: BoxConstraints(
+                            maxWidth: MediaQuery.of(context).size.width *
+                                0.7, // 70% of screen width
                           ),
-                          child: Text(
-                            msg.text,
-                            style: const TextStyle(color: Colors.white),
+                          child: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: msg.isMe
+                                  ? AppColors.primaryColor
+                                  : Colors.black87,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: const Radius.circular(12),
+                                bottomRight: const Radius.circular(12),
+                                topLeft: msg.isMe
+                                    ? const Radius.circular(12)
+                                    : const Radius.circular(0),
+                                topRight: msg.isMe
+                                    ? const Radius.circular(0)
+                                    : const Radius.circular(12),
+                              ),
+                            ),
+                            child: Text(
+                              msg.text,
+                              style: const TextStyle(color: Colors.white),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -269,7 +279,7 @@ class _TradeChatScreenState extends State<TradeChatScreen> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(color: AppColors.primaryColor),

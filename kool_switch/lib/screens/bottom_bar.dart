@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kool_switch/screens/chat_screen.dart';
 import 'package:kool_switch/screens/create_listing_screen.dart';
 import 'package:kool_switch/screens/market_place_screen.dart';
+import 'package:kool_switch/screens/profile_screen.dart';
 import 'package:kool_switch/screens/wallet_dashboard_screen.dart';
 
 class MyBottomBar extends StatefulWidget {
@@ -21,8 +23,8 @@ class _MyBottomBarState extends State<MyBottomBar> {
     WalletDashboardScreen(),
     MarketPlaceScreen(),
     CreateListingScreen(),
-    const ChatScreen(),
-    const ProfileScreen(),
+    ChatScreen(),
+    ProfileScreen()
   ];
 
   void _onTabTapped(int index) {
@@ -101,29 +103,5 @@ class _MyBottomBarState extends State<MyBottomBar> {
         ),
       ),
     );
-  }
-}
-
-class ListingScreen extends StatelessWidget {
-  const ListingScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text("Listing Screen"));
-  }
-}
-
-class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text("Chat Screen"));
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text("Profile Screen"));
   }
 }

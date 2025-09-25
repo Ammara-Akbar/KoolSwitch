@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:kool_switch/screens/make_payment_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
-class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({super.key});
+class ConfirmOrderScreen extends StatelessWidget {
+  const ConfirmOrderScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +14,10 @@ class PaymentScreen extends StatelessWidget {
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
         elevation: 0,
+        title: Text("Confirm Order",style: TextStyle(
+          fontSize: 20
+        ),),
+        centerTitle: true,
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
@@ -170,7 +174,7 @@ class PaymentScreen extends StatelessWidget {
                 Expanded(
                   child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: AppColors.primaryColor),
+                    backgroundColor: AppColors.primaryColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)),
                       padding: const EdgeInsets.symmetric(vertical: 14),
@@ -178,7 +182,7 @@ class PaymentScreen extends StatelessWidget {
                     onPressed: () {},
                     child: const Text("Cancel",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.w600)),
+                             color: Colors.white, fontWeight: FontWeight.w600)),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -191,10 +195,10 @@ class PaymentScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => MakePaymentScreen()),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (_) => MakePaymentScreen()),
+                      // );
                     },
                     child: const Text("Make Payment",
                         style: TextStyle(
