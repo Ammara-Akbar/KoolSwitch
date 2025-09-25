@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kool_switch/screens/create_listing_screen.dart';
 import 'package:kool_switch/screens/market_place_screen.dart';
 import 'package:kool_switch/screens/wallet_dashboard_screen.dart';
 
@@ -19,7 +20,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
   final List<Widget> _screens = [
     WalletDashboardScreen(),
     MarketPlaceScreen(),
-    const ListingScreen(),
+    CreateListingScreen(),
     const ChatScreen(),
     const ProfileScreen(),
   ];
