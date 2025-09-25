@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kool_switch/screens/market_place_screen.dart';
 import 'package:kool_switch/screens/wallet_dashboard_screen.dart';
 
 class MyBottomBar extends StatefulWidget {
@@ -17,7 +18,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
   // Screens for each tab
   final List<Widget> _screens = [
     WalletDashboardScreen(),
-    const TradesScreen(),
+    MarketPlaceScreen(),
     const ListingScreen(),
     const ChatScreen(),
     const ProfileScreen(),
@@ -99,14 +100,6 @@ class _MyBottomBarState extends State<MyBottomBar> {
         ),
       ),
     );
-  }
-}
-
-class TradesScreen extends StatelessWidget {
-  const TradesScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text("Trades Screen"));
   }
 }
 
