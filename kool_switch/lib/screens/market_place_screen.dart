@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kool_switch/screens/custom_filter_screen.dart';
 import 'package:kool_switch/screens/select_currency_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
@@ -83,37 +84,42 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
                     children: [
                       Expanded(
                           flex: 2,
-                          child: Container(
-                            padding: EdgeInsets.all(6),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(08),
-                                border:
-                                    Border.all(color: Colors.white, width: 2)),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "E.g 5000",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                Text(
-                                  "NGN",
-                                  style: TextStyle(color: Colors.white),
-                                )
-                              ],
+                          child: GestureDetector(
+                            onTap: () {
+                              
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(6),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(08),
+                                  border: Border.all(
+                                      color: Colors.white, width: 2)),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "E.g 5000",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  Text(
+                                    "NGN",
+                                    style: TextStyle(color: Colors.white),
+                                  )
+                                ],
+                              ),
                             ),
                           )),
                       const SizedBox(width: 10),
                       Expanded(
                         flex: 1,
                         child: GestureDetector(
-                          onTap: (){
-                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) =>
-                                        SelectCurrencyScreen()),
-                              );
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => SelectCurrencyScreen()),
+                            );
                           },
                           child: Container(
                               padding: EdgeInsets.all(6),
@@ -142,20 +148,29 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
                       const SizedBox(width: 10),
                       Expanded(
                           flex: 1,
-                          child: Row(
-                            children: [
-                              Text(
-                                "Filter",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              SizedBox(
-                                width: 4,
-                              ),
-                              Image.asset(
-                                "assets/images/Filter.png",
-                                height: 22,
-                              ),
-                            ],
+                          child: GestureDetector(
+                            onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => CustomFiltersScreen()),
+                              );
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  "Filter",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                SizedBox(
+                                  width: 4,
+                                ),
+                                Image.asset(
+                                  "assets/images/Filter.png",
+                                  height: 22,
+                                ),
+                              ],
+                            ),
                           )),
                     ],
                   ),
@@ -259,182 +274,177 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
 
 // ✅ Custom Trade Tile (No ListTile used)
   Widget _tradeTile({
-  required String name,
-  required String method,
-  required String price,
-  required String quantity,
-  required String orders,
-  required String completion,
-  required String buttonText,
-  required Color buttonColor,
-}) {
-  return Column(
-    children: [
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // 🔹 Top row: Avatar + Name + Verified + Quantity
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: 12,
-                  backgroundColor: Colors.grey.shade300,
-                  child: Text(
-                    name[0],
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w600,
+    required String name,
+    required String method,
+    required String price,
+    required String quantity,
+    required String orders,
+    required String completion,
+    required String buttonText,
+    required Color buttonColor,
+  }) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // 🔹 Top row: Avatar + Name + Verified + Quantity
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundColor: Colors.grey.shade300,
+                    child: Text(
+                      name[0],
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 10),
+                  const SizedBox(width: 10),
 
-                // Name + Verified
-                Expanded(
-                  child: Row(
+                  // Name + Verified
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Text(
+                          name,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                        ),
+                        const SizedBox(width: 5),
+                        Icon(Icons.verified,
+                            color: Color(0xffF2C025), size: 16),
+                      ],
+                    ),
+                  ),
+
+                  // Quantity
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        name,
+                        "Quantity  $quantity",
                         style: const TextStyle(
+                          fontSize: 13,
                           fontWeight: FontWeight.w600,
-                          fontSize: 14,
                           color: Colors.black,
                         ),
                       ),
-                      const SizedBox(width: 5),
-                       Icon(Icons.verified,
-                          color: Color(0xffF2C025), size: 16),
+                      // 🔹 Method row
+                      Row(
+                        children: [
+                          Container(
+                            width: 6,
+                            height: 6,
+                            decoration: const BoxDecoration(
+                              color: Colors.orange,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            method,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
-                ),
-
-                // Quantity
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Quantity  $quantity",
-                      style: const TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black,
-                      ),
-                    ),
-                    // 🔹 Method row
-            Row(
-              children: [
-                Container(
-                  width: 6,
-                  height: 6,
-                  decoration: const BoxDecoration(
-                    color: Colors.orange,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-                const SizedBox(width: 4),
-                Text(
-                  method,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: Colors.black54,
-                  ),
-                ),
-              ],
-            ),
-
-                  ],
-                ),
-              ],
-            ),
-            
-            const SizedBox(height: 10),
-
-            // 🔹 Price
-            Text(
-              "Price",
-              style: TextStyle(
-                fontSize: 13,
-                color: Colors.grey.shade600,
+                ],
               ),
-            ),
-            Text(
-              price,
-              style: const TextStyle(
-                fontSize: 22,
-                color: Colors.black38,
+
+              const SizedBox(height: 10),
+
+              // 🔹 Price
+              Text(
+                "Price",
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Colors.grey.shade600,
+                ),
               ),
-            ),
-
-           
-
-            // 🔹 Orders + Completion + Button on right
-            Row(
-           
-              children: [
-                Image.asset("assets/images/receipt-2.png", height: 19),
-                const SizedBox(width: 4),
-                Text(
-                  "$orders orders",
-                  style: const TextStyle(
-                    fontSize: 10,
-                    color: Colors.black54,
-                  ),
+              Text(
+                price,
+                style: const TextStyle(
+                  fontSize: 22,
+                  color: Colors.black38,
                 ),
-                const SizedBox(width: 12),
-                Container(
-                  padding: const EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                    color: Colors.black38,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: const Icon(Icons.check,
-                      size: 8, color: Colors.black),
-                ),
-                const SizedBox(width: 4),
-                Text(
-                  "$completion Completion",
-                  style: const TextStyle(
-                    fontSize: 10,
-                    color: Colors.black54,
-                  ),
-                ),
+              ),
 
-                const Spacer(), // 👈 pushes button to the far right
-
-                SizedBox(
-                  width: 90,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: buttonColor,
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      buttonText,
-                      style: const TextStyle(
-                        color: Colors.black, // white like screenshot
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
+              // 🔹 Orders + Completion + Button on right
+              Row(
+                children: [
+                  Image.asset("assets/images/receipt-2.png", height: 19),
+                  const SizedBox(width: 4),
+                  Text(
+                    "$orders orders",
+                    style: const TextStyle(
+                      fontSize: 10,
+                      color: Colors.black54,
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                  const SizedBox(width: 12),
+                  Container(
+                    padding: const EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: Colors.black38,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child:
+                        const Icon(Icons.check, size: 8, color: Colors.black),
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    "$completion Completion",
+                    style: const TextStyle(
+                      fontSize: 10,
+                      color: Colors.black54,
+                    ),
+                  ),
+
+                  const Spacer(), // 👈 pushes button to the far right
+
+                  SizedBox(
+                    width: 90,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: buttonColor,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 7),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        buttonText,
+                        style: const TextStyle(
+                          color: Colors.black, // white like screenshot
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-      ),
-      Divider(color: Colors.grey.shade300, thickness: 1),
-    ],
-  );
-}
-
+        Divider(color: Colors.grey.shade300, thickness: 1),
+      ],
+    );
+  }
 }
