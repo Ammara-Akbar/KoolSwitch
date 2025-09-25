@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kool_switch/utils/colors.dart';
 
 class BuyNGNScreen extends StatefulWidget {
   const BuyNGNScreen({super.key});
@@ -16,11 +17,21 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
       backgroundColor: Colors.white,
 
       appBar: AppBar(
+      
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
+            leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    color: Colors.grey.shade200),
+                child: Icon(Icons.arrow_back, color: Colors.black45)),
+          ),
         ),
         centerTitle: true,
         title: const Text(
@@ -41,10 +52,10 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
 
             /// Toggle Tabs
             Container(
-              height: 45,
+              height: 40,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black26),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
                 children: [
@@ -93,22 +104,22 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
 
             /// RMB Amount
             const Text("RMB Amount",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
             const SizedBox(height: 8),
             _buildTextField("E.g 5000", suffix: "NGN"),
             const SizedBox(height: 8),
 
             /// Price + Limit Row
             Row(
-              children: const [
-                Icon(Icons.monetization_on, size: 16, color: Colors.black54),
+              children:  [
+                Image.asset("assets/images/receipt-2.png",height: 16),
                 SizedBox(width: 4),
                 Text("Price ₦750",
                     style: TextStyle(fontSize: 13, color: Colors.black54)),
                 SizedBox(width: 16),
-                Icon(Icons.lock_clock, size: 16, color: Colors.black54),
+                Image.asset("assets/images/receipt-2.png",height: 16),
                 SizedBox(width: 4),
-                Text("Limit ₦7,500.00 - 9,000.00",
+                Text("Limit ₦7, 500.00 - 9,000.00",
                     style: TextStyle(fontSize: 13, color: Colors.black54)),
               ],
             ),
@@ -124,29 +135,33 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
             /// Proceed Button
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF0D213A),
+                backgroundColor: AppColors.primaryColor,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
               onPressed: () {},
-              child: const Center(
-                child: Text("Proceed", style: TextStyle(color: Colors.white)),
+              child:  Center(
+                child: Text("Proceed", style: TextStyle(color: Colors.white,fontSize: 14)),
               ),
             ),
             const SizedBox(height: 24),
 
             /// Trade Information
-            const Text(
-              "Trade Information",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            Align(
+              alignment: Alignment.center,
+              child: const Text(
+                "Trade Information",
+               
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
             ),
             const SizedBox(height: 12),
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: const Color(0xFF0D213A),
+                color: AppColors.primaryColor,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
@@ -213,6 +228,10 @@ class _BuyNGNScreenState extends State<BuyNGNScreen> {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: Colors.black26),
+        ),
+         focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: AppColors.primaryColor),
         ),
       ),
     );

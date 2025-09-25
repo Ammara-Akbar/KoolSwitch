@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kool_switch/screens/buy_ngn_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class CreateListingScreen extends StatefulWidget {
@@ -18,6 +19,7 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
       appBar: AppBar(
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
         elevation: 0,
         centerTitle: true,
 
@@ -183,7 +185,12 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => BuyNGNScreen()),
+                      );
+                    },
                     child: const Text("Post Listing",
                         style: TextStyle(color: Colors.white)),
                   ),
@@ -213,13 +220,11 @@ class _CreateListingScreenState extends State<CreateListingScreen> {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: Colors.black26),
-
         ),
-        focusedBorder:OutlineInputBorder(
+        focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color:AppColors.primaryColor),
-
-        ), 
+          borderSide: const BorderSide(color: AppColors.primaryColor),
+        ),
       ),
     );
   }
