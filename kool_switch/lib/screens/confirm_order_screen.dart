@@ -1,6 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:kool_switch/screens/make_payment_screen.dart';
 import 'package:kool_switch/utils/colors.dart';
 
 class ConfirmOrderScreen extends StatelessWidget {
@@ -56,7 +55,7 @@ class ConfirmOrderScreen extends StatelessWidget {
                   children: [
                     _rowItem("Fiat Currency", "NGN"),
                     const SizedBox(height: 25),
-                    _rowItem("Value", "0.03456 ALGO",
+                    _rowItem("Value", "899 ALGO",
                         isBold: true, valueColor: Colors.white),
                     const SizedBox(height: 25),
                     _rowItem("FIAT Value", "100,000.00 NGN",

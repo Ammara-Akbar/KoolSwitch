@@ -17,7 +17,6 @@ class _CustomFiltersScreenState extends State<CustomFiltersScreen> {
     "All",
     "Bank Transfer",
     "PayPal",
-    "Crypto",
     "Cash"
   ]; // added more to test scroll
 

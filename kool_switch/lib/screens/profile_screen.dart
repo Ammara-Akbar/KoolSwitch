@@ -177,7 +177,7 @@ class ProfileScreen extends StatelessWidget {
                 title: "Received Feedback", icon: "assets/images/like-tag.png"),
             Divider(),
             const _MenuItem(
-                title: "Kool switch Notifications",
+                title: "Notifications",
                 icon: "assets/images/Notification.png"),
                   Divider(),
             const _MenuItem(

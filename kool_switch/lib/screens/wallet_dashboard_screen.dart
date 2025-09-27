@@ -86,7 +86,7 @@ class WalletDashboardScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "\$56.98",
+                      "¥56.98",
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,

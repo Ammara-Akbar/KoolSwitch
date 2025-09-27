@@ -26,7 +26,7 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: const Text(
-          "Koolswitch Market Place",
+          "Koolswitch MarketPlace",
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
